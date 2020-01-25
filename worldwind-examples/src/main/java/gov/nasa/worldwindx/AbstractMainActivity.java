@@ -38,8 +38,8 @@ import gov.nasa.worldwind.util.Logger;
  * This abstract Activity class implements a Navigation Drawer menu shared by all the WorldWind Example activities.
  */
 public abstract class AbstractMainActivity extends AppCompatActivity
-    implements NavigationView.OnNavigationItemSelectedListener {
-
+    //implements NavigationView.OnNavigationItemSelectedListener {
+{
     protected final static String SESSION_TIMESTAMP = "session_timestamp";
 
     protected final static String CAMERA_LATITUDE = "latitude";
@@ -109,22 +109,22 @@ public abstract class AbstractMainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         // Add support for the navigation drawer full of examples
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        /*DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         this.drawerToggle = new ActionBarDrawerToggle(
             this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(this.drawerToggle);
         this.drawerToggle.syncState();
-
-        this.navigationView = (NavigationView) findViewById(R.id.nav_view);
-        this.navigationView.setNavigationItemSelectedListener(this);
-        this.navigationView.setCheckedItem(selectedItemId);
+           */
+        //this.navigationView = (NavigationView) findViewById(R.id.nav_view);
+        //this.navigationView.setNavigationItemSelectedListener(this);
+        //this.navigationView.setCheckedItem(selectedItemId);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         // Update the menu by highlighting the last selected menu item
-        this.navigationView.setCheckedItem(selectedItemId);
+        //this.navigationView.setCheckedItem(selectedItemId);
         // Use this Activity's Handler to periodically print the FrameMetrics.
         this.handler.sendEmptyMessageDelayed(PRINT_METRICS, PRINT_METRICS_DELAY);
         // Restore the navigator's camera state from previously saved session data
@@ -140,7 +140,7 @@ public abstract class AbstractMainActivity extends AppCompatActivity
         this.saveNavigatorState();
     }
 
-    @Override
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
@@ -286,16 +286,16 @@ public abstract class AbstractMainActivity extends AppCompatActivity
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        this.drawerToggle.syncState();
+        //this.drawerToggle.syncState();
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        this.drawerToggle.onConfigurationChanged(newConfig);
+        //this.drawerToggle.onConfigurationChanged(newConfig);
     }
 
-    @Override
+    /*@Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Persist the selected item between Activities
         selectedItemId = item.getItemId();
@@ -353,7 +353,7 @@ public abstract class AbstractMainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
+    }*/
 
     protected static long getSessionTimestamp() {
         return sessionTimestamp.getTime();

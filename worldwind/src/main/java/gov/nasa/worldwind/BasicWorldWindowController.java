@@ -5,6 +5,7 @@
 
 package gov.nasa.worldwind;
 
+import android.util.Log;
 import android.view.MotionEvent;
 
 import java.util.Arrays;
@@ -98,6 +99,9 @@ public class BasicWorldWindowController implements WorldWindowController, Gestur
             this.gestureDidBegin();
             this.lastX = 0;
             this.lastY = 0;
+            Log.d("Latitude1",String.valueOf(this.lastX));
+            Log.d("Longitude2",String.valueOf(this.lastY));
+
         } else if (state == WorldWind.CHANGED) {
             // Get the navigator's current position.
             double lat = this.lookAt.latitude;
@@ -137,6 +141,9 @@ public class BasicWorldWindowController implements WorldWindowController, Gestur
                 this.lookAt.latitude = lat;
                 this.lookAt.longitude = lon;
             }
+
+            Log.d("Latitude",String.valueOf(lat));
+            Log.d("Longitude",String.valueOf(lon));
 
             this.wwd.getNavigator().setAsLookAt(this.wwd.getGlobe(), this.lookAt);
             this.wwd.requestRedraw();

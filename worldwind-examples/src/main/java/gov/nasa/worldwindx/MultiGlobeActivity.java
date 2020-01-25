@@ -26,7 +26,7 @@ public class MultiGlobeActivity extends AbstractMainActivity {
     /**
      * This protected member allows derived classes to override the resource used in setContentView.
      */
-    protected int layoutResourceId = R.layout.activity_globe;
+   // protected int layoutResourceId = R.layout.activity_globe;
     protected int deviceOrientation;
     /**
      * The WorldWindow (GLSurfaceView) maintained by this activity
@@ -37,7 +37,7 @@ public class MultiGlobeActivity extends AbstractMainActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // Establish the activity content
-        setContentView(this.layoutResourceId);
+     //   setContentView(this.layoutResourceId);
         super.onCreate(savedInstanceState);
         setAboutBoxTitle("About the " + this.getResources().getText(R.string.title_multi_globe));
         setAboutBoxText("Demonstrates multiple globes.");

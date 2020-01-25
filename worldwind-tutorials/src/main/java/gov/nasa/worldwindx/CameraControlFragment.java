@@ -5,6 +5,8 @@
 
 package gov.nasa.worldwindx;
 
+import android.widget.Toast;
+
 import gov.nasa.worldwind.BasicWorldWindowController;
 import gov.nasa.worldwind.WorldWind;
 import gov.nasa.worldwind.WorldWindow;
@@ -89,6 +91,8 @@ public class CameraControlFragment extends BasicGlobeFragment {
                 double cosHeading = Math.cos(headingRadians);
                 lat += forwardDegrees * cosHeading - sideDegrees * sinHeading;
                 lon += forwardDegrees * sinHeading + sideDegrees * cosHeading;
+
+                //Toast.makeText(getContext(), "Latitude:"+lat+" Longitude:"+lon,Toast.LENGTH_LONG).show();
 
                 // If the navigator has panned over either pole, compensate by adjusting the longitude and heading to move
                 // the navigator to the appropriate spot on the other side of the pole.
