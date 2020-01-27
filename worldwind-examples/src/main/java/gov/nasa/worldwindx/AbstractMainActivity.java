@@ -38,8 +38,8 @@ import gov.nasa.worldwind.util.Logger;
  * This abstract Activity class implements a Navigation Drawer menu shared by all the WorldWind Example activities.
  */
 public abstract class AbstractMainActivity extends AppCompatActivity
-    //implements NavigationView.OnNavigationItemSelectedListener {
-{
+        implements NavigationView.OnNavigationItemSelectedListener {
+
     protected final static String SESSION_TIMESTAMP = "session_timestamp";
 
     protected final static String CAMERA_LATITUDE = "latitude";
@@ -109,15 +109,15 @@ public abstract class AbstractMainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         // Add support for the navigation drawer full of examples
-        /*DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         this.drawerToggle = new ActionBarDrawerToggle(
             this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(this.drawerToggle);
         this.drawerToggle.syncState();
-           */
-        //this.navigationView = (NavigationView) findViewById(R.id.nav_view);
-        //this.navigationView.setNavigationItemSelectedListener(this);
-        //this.navigationView.setCheckedItem(selectedItemId);
+
+        this.navigationView = (NavigationView) findViewById(R.id.nav_view);
+        this.navigationView.setNavigationItemSelectedListener(this);
+        this.navigationView.setCheckedItem(selectedItemId);
     }
 
     @Override
@@ -295,7 +295,7 @@ public abstract class AbstractMainActivity extends AppCompatActivity
         //this.drawerToggle.onConfigurationChanged(newConfig);
     }
 
-    /*@Override
+    @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Persist the selected item between Activities
         selectedItemId = item.getItemId();
@@ -303,57 +303,19 @@ public abstract class AbstractMainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         switch (selectedItemId) {
 
-            case R.id.nav_basic_performance_benchmark_activity:
-                startActivity(new Intent(getApplicationContext(), BasicPerformanceBenchmarkActivity.class));
-                break;
-            case R.id.nav_basic_stress_test_activity:
-                startActivity(new Intent(getApplicationContext(), BasicStressTestActivity.class));
-                break;
-            case R.id.nav_day_night_cycle_activity:
-                startActivity(new Intent(getApplicationContext(), DayNightCycleActivity.class));
-                break;
             case R.id.nav_general_globe_activity:
                 startActivity(new Intent(getApplicationContext(), GeneralGlobeActivity.class));
                 break;
-            case R.id.nav_multi_globe_activity:
-                startActivity(new Intent(getApplicationContext(), MultiGlobeActivity.class));
+            case R.id.entercoordinates:
+                startActivity(new Intent(getApplicationContext(), EnterCoordinatesActivity.class));
                 break;
-            case R.id.nav_omnidirectional_sightline_activity:
-                startActivity(new Intent(getApplicationContext(), OmnidirectionalSightlineActivity.class));
-                break;
-            case R.id.nav_paths_example:
-                startActivity(new Intent(getApplicationContext(), PathsExampleActivity.class));
-                break;
-            case R.id.nav_paths_and_polygons_activity:
-                startActivity(new Intent(getApplicationContext(), PathsPolygonsLabelsActivity.class));
-                break;
-            case R.id.nav_placemarks_demo_activity:
-                startActivity(new Intent(getApplicationContext(), PlacemarksDemoActivity.class));
-                break;
-            case R.id.nav_placemarks_milstd2525_activity:
-                startActivity(new Intent(getApplicationContext(), PlacemarksMilStd2525Activity.class));
-                break;
-            case R.id.nav_placemarks_milstd2525_demo_activity:
-                startActivity(new Intent(getApplicationContext(), PlacemarksMilStd2525DemoActivity.class));
-                break;
-            case R.id.nav_placemarks_milstd2525_stress_activity:
-                startActivity(new Intent(getApplicationContext(), PlacemarksMilStd2525StressActivity.class));
-                break;
-            case R.id.nav_placemarks_select_drag_activity:
-                startActivity(new Intent(getApplicationContext(), PlacemarksSelectDragActivity.class));
-                break;
-            case R.id.nav_placemarks_stress_activity:
-                startActivity(new Intent(getApplicationContext(), PlacemarksStressTestActivity.class));
-                break;
-            case R.id.nav_texture_stress_test_activity:
-                startActivity(new Intent(getApplicationContext(), TextureStressTestActivity.class));
-                break;
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }*/
+    }
 
     protected static long getSessionTimestamp() {
         return sessionTimestamp.getTime();

@@ -9,11 +9,11 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import gov.nasa.worldwind.NavigatorEvent;
 import gov.nasa.worldwind.NavigatorListener;
 import gov.nasa.worldwind.WorldWind;
@@ -41,6 +41,8 @@ public class GeneralGlobeActivity extends BasicGlobeActivity {
     private AnimatorSet animatorSet;
     private boolean crosshairsActive;
 
+    String Lat,Lon;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +67,16 @@ public class GeneralGlobeActivity extends BasicGlobeActivity {
         fadeOut.setStartDelay((long) 500);
         this.animatorSet = new AnimatorSet();
         this.animatorSet.play(fadeOut);
+
+        Lat = getIntent().getExtras().getString("Latitude__");
+        Lon = getIntent().getExtras().getString("Longitude__");
+
+//        LookAt lookAt = new LookAt();
+//
+//        lookAt.latitude = Double.parseDouble(Lat);
+//        lookAt.longitude = Double.parseDouble(Lon);
+
+
 
         // Create a simple Navigator Listener that logs navigator events emitted by the WorldWindow.
         NavigatorListener listener = new NavigatorListener() {
